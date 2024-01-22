@@ -17,42 +17,47 @@
       crossorigin="anonymous"
     />
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
 
   <body>
     <header>
       <!-- place navbar here -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light ">
         <div class="container-fluid">
-          <a class="navbar-brand" href="{{route('home.index')}}">Tienda</a>
+          <a class="navbar-brand" href="{{route('home.index')}}">Online Store</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{route('home.index')}}">Home</a>
+                <a class="nav-link" aria-current="page" href="{{route('home.index')}}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="{{route('product.index')}}">Products</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
+                  Products
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="{{route('product.index')}}">All the products</a></li>
+                  <li><a class="dropdown-item" href="#">Highlighted products</a></li>
+                  <li><a class="dropdown-item" href="#">Products on sale</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item" href="#">Outlet</a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="{{ route('cart.index') }}" tabindex="-1" aria-disabled="true">Cart</a>
               </li>
-              <div class="vr bg-white mx-2 d-none d-lg-block"></div>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('home.about') }}" tabindex="-1" aria-disabled="true">About</a>
+              </li>
+              <div class="vr mx-2 d-none d-lg-block"></div>
           @guest
-          <li class="nav-item">
+          <li class="nav-item d-flex">
             <a class="nav-link active" href="{{ route('login') }}">Login</a>
           </li>
           <li class="nav-item">
@@ -71,7 +76,6 @@
           @endguest
         </div>
             </ul>
-            
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
@@ -81,7 +85,7 @@
       </nav>
     </header>
     <main>
-      <div class="container my-4">
+      <div class="container">
         @yield('content')
       </div>
     </main>
