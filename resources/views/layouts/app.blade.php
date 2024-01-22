@@ -19,7 +19,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
-
+  <link rel="stylesheet" href="{{asset('css/index.css')}}">
+  <script src="{{asset('js/app.js')}}"></script>
   <body>
     <header>
       <!-- place navbar here -->
@@ -85,9 +86,7 @@
       </nav>
     </header>
     <main>
-      <div class="container">
         @yield('content')
-      </div>
     </main>
       <!-- place footer here -->
         <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top px-3">

@@ -1,35 +1,32 @@
 @extends('layouts.app')
 @section('title', $viewData["title"])
 @section('content')
-<div id="carouselExampleFade" class="carousel slide carousel-fade">
+<div id="carouselIndex" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3500" data-bs-wrap="true">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="{{asset('/img/game.png')}}" class="d-block w-100" alt="...">
+      <div class="carousel-item image-cover active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url({{asset('img/banner.jpg')}})">
         <div class="carousel-caption d-none d-md-block">
             <h5>First slide label</h5>
             <p>Some representative placeholder content for the first slide.</p>
           </div>
       </div>
-      <div class="carousel-item">
-        <img src="{{asset('/img/safe.png')}}" class="d-block w-100" alt="...">
+      <div class="carousel-item image-cover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url({{asset('img/banner2.jpg')}} )">
         <div class="carousel-caption d-none d-md-block">
             <h5>First slide label</h5>
             <p>Some representative placeholder content for the first slide.</p>
         </div>
       </div>
-      <div class="carousel-item">
-        <img src="{{asset('/img/submarine.png')}}" class="d-block w-100" alt="...">
+      <div class="carousel-item image-cover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url({{asset('img/banner3.jpg')}})">
         <div class="carousel-caption d-none d-md-block">
             <h5>First slide label</h5>
             <p>Some representative placeholder content for the first slide.</p>
           </div>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <button class="carousel-control-prev d-none" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <button class="carousel-control-next d-none" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
