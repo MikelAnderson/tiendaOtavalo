@@ -44,14 +44,40 @@
           </div>
         </div>
         <div class="col">
-          &nbsp;
+          <div class="mb-3 row">
+            <label class="col-lg-3 col-md-6 col-sm-12 col-form-label">Category:</label>
+            <div class="col-lg-9 col-md-6 col-sm-12">
+              <select name="category" class="form-select">
+                @foreach ($viewData["categories"] as $category)
+                <option value="{{ $category->getId() }}">{{ $category->getName() }}</option>
+                @endforeach
+              </select>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="d-flex gap-4 py-3">
+        <div class="form-check">
+          <input type="hidden" name="featured" value="0" />
+          <input class="form-check-input" name="featured" type="checkbox" value="1" >
+          <label class="form-check-label" for="flexCheckDefault">
+            Featured Product
+          </label>
+        </div>
+        <div class="form-check">
+          <input type="hidden" name="sale" value="0" />
+          <input class="form-check-input" type="checkbox" name="sale" value="1" >
+          <label class="form-check-label" for="flexCheckDefault">
+            Product on sale
+          </label>
+        </div>
+      </div>
+
       <div class="mb-3">
         <label class="form-label">Description</label>
         <textarea class="form-control" name="description" rows="3">{{ old('description') }}</textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary my-3">Submit</button>
     </form>
   </div>
 </div>
@@ -66,6 +92,10 @@
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Category</th>
+          <th scope="col">Featured</th>
+          <th scope="col">On Sale</th>
           <th scope="col">Edit</th>
           <th scope="col">Delete</th>
         </tr>
@@ -75,6 +105,10 @@
         <tr>
           <td>{{ $product->getId() }}</td>
           <td>{{ $product->getName() }}</td>
+          <td>{{ $product->getPrice() }}</td>
+          <td>{{ $product->categories->name }}</td>
+          <td>{{ $product->getFeatured() }}</td>
+          <td>{{ $product->getSale() }}</td>
           <td>
             <a class="btn btn-primary" href="{{route('admin.product.edit', ['id'=> $product->getId()])}}">
               <i class="bi-pencil"></i>

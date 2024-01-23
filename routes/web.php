@@ -37,3 +37,6 @@ Route::middleware('admin')->group(function () {
 });
 
 Auth::routes();
+
+use App\Http\Controllers\CategoryController;
+Route::resource('categories', CategoryController::class);

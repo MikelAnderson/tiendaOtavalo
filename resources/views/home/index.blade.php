@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', $viewData["title"])
 @section('content')
-<div id="carouselIndex" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3500" data-bs-wrap="true">
+<div id="#carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3500" data-bs-wrap="true">
     <div class="carousel-inner">
       <div class="carousel-item image-cover active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url({{asset('img/banner.jpg')}})">
         <div class="carousel-caption d-none d-md-block">
@@ -11,7 +11,7 @@
       </div>
       <div class="carousel-item image-cover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url({{asset('img/banner2.jpg')}} )">
         <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
+            <h5>second slide label</h5>
             <p>Some representative placeholder content for the first slide.</p>
         </div>
       </div>
@@ -35,7 +35,7 @@
   <div class="container col-xxl-8 px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-6">
-        <img src="{{asset('/img/game.png')}}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+        <img src="{{asset('/img/game.png')}}" class="d-block mx-lg-auto img-fluid rounded" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
       </div>
       <div class="col-lg-6">
         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Responsive left-aligned hero with image</h1>

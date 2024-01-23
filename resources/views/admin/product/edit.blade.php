@@ -46,7 +46,32 @@
           </div>
         </div>
         <div class="col">
-          &nbsp;
+        <div class="mb-3 row">
+            <label class="col-lg-3 col-md-6 col-sm-12 col-form-label">Category:</label>
+            <div class="col-lg-9 col-md-6 col-sm-12">
+              <select name="category" class="form-select">
+                @foreach ($viewData["categories"] as $category)
+                <option value="{{ $category->getId() }}" >{{ $category->getName() }}</option>
+                @endforeach
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex gap-4 py-3">
+        <div class="form-check">
+        <input type="hidden" name="featured" value="0" />
+          <input class="form-check-input" name="featured" type="checkbox" value="1" {{ $viewData['product']->getFeatured() == 1 ? 'checked' : '' }}>
+          <label class="form-check-label" for="flexCheckDefault">
+            Featured Product
+          </label>
+        </div>
+        <div class="form-check">
+          <input type="hidden" name="sale" value="0" />
+          <input class="form-check-input" type="checkbox" name="sale" value="1" {{ $viewData['product']->getSale() == 1 ? 'checked' : '' }}>
+          <label class="form-check-label" for="flexCheckDefault">
+            Product on sale
+          </label>
         </div>
       </div>
       <div class="mb-3">

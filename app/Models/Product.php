@@ -19,6 +19,12 @@ class Product extends Model
      * $this->items - Item[] - contains the associated items
      */
 
+    public function categories()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+
     public static function validate($request)
     {
         $request->validate([
@@ -33,7 +39,7 @@ class Product extends Model
     {
         $total = 0;
         foreach ($products as $product) {
-            $total = $total + ($product->getPrice()*$productsInSession[$product->getId()]);
+            $total = $total + ($product->getPrice() * $productsInSession[$product->getId()]);
         }
 
         return $total;
@@ -113,7 +119,7 @@ class Product extends Model
     {
         return $this->hasMany(Item::class);
     }
-    
+
     public function getItems()
     {
         return $this->items;
@@ -122,5 +128,37 @@ class Product extends Model
     public function setItems($items)
     {
         $this->items = $items;
+    }
+
+    public function getCategory()
+    {
+        return $this->category_id;
+    }
+
+    public function setCategory($category)
+    {
+        $this->category_id = $category;
+    }
+
+
+    public function getFeatured()
+    {
+        return $this->attributes['featured'];
+    }
+
+    public function setFeatured($featured)
+    {
+        $this->attributes['featured'] = $featured;
+    }
+
+    
+    public function getSale()
+    {
+        return $this->attributes['sale'];;
+    }
+
+    public function setSale($sale)
+    {
+        $this->attributes['sale'] = $sale;
     }
 }

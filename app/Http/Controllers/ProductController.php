@@ -26,4 +26,6 @@ class ProductController extends Controller
         $viewData["product"] = $product;
         return view('product.show')->with("viewData", $viewData);
     }
+
+    
 }
