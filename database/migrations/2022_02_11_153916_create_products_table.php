@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('image');
-            $table->integer('price');
+            $table->float('price');
+            $table->float('discounted_price');
             $table->boolean('featured');
             $table->boolean('sale');
             $table->foreignId('category_id')

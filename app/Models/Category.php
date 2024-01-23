@@ -13,6 +13,13 @@ class Category extends Model
         return $this->hasMany(Product::class, 'id');
     }
 
+    public static function validate($request)
+    {
+        $request->validate([
+            "name" => "required|max:255"
+        ]);
+    }
+
     public function getId()
     {
         return $this->attributes['id'];
