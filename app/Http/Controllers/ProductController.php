@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use League\CommonMark\Extension\Table\Table;
 
 class ProductController extends Controller
 {
@@ -14,6 +17,7 @@ class ProductController extends Controller
         $viewData["title"] = "Products - Online Store";
         $viewData["subtitle"] =  "List of products";
         $viewData["products"] = Product::all();
+        $viewData["categories"] = Category::all();
         return view('product.index')->with("viewData", $viewData);
     }
 
@@ -27,5 +31,13 @@ class ProductController extends Controller
         return view('product.show')->with("viewData", $viewData);
     }
 
-    
+    public function filter(Request $request){
+    $products = Product::query();
+
+    if ($request->input('category_id')) {
+        $products->where('category_id', (int) $request->input('category_id'));
+    }
+
+    return $products->get();
+    }
 }

@@ -47,7 +47,9 @@
                   <li><a class="dropdown-item" href="#">Highlighted products</a></li>
                   <li><a class="dropdown-item" href="#">Products on sale</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Outlet</a></li>
+                  <li><a class="dropdown-item" href="#">Categories</a></li>
+                  <li><a class="dropdown-item" href="#">Smartphones</a></li>
+
                 </ul>
               </li>
               <li class="nav-item">

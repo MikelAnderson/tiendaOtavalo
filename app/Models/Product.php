@@ -95,6 +95,16 @@ class Product extends Model
         $this->attributes['price'] = $price;
     }
 
+    public function getDiscountedPrice()
+    {
+        return $this->attributes['disounted_price'];
+    }
+
+    public function setDiscountedPrice($discountedPrice)
+    {
+        $this->attributes['discounted_price'] = $discountedPrice;
+    }
+
     public function getCreatedAt()
     {
         return $this->attributes['created_at'];
