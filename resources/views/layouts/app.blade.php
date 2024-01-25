@@ -17,10 +17,10 @@
 <script src="{{ asset('js/app.js') }}"></script>
 
 <body>
-    <header>
+    <header class="px-5 py-2 bg-light">
         <!-- place navbar here -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light py-4 px-3">
-            <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid d-flex justify-content-between">
                 <a class="navbar-brand" href="{{ route('home.index') }}">Online Store</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -73,8 +73,8 @@
                                 @csrf
                             </form>
                         @endguest
-                        <form class="d-flex">
-                          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <form class="nav-item d-flex">
+                          <input class="form-control" type="search" placeholder="Search Product" aria-label="Search">
                           <button class="btn btn-outline-success" type="submit">Search</button>
                       </form>
                 </div>
@@ -88,43 +88,55 @@
         @yield('content')
     </main>
     <!-- place footer here -->
-    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-        <div class="col mb-3">
-            <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-                <svg class="bi me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap" />
-                </svg>
-            </a>
-            <p class="text-muted">&copy; 2022</p>
-        </div>
+    <hr>
+    <div class="container">
+  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-4">
+    <div class="col mb-3">
+      <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+      </a>
+      <p class="text-muted">&copy; 2022</p>
+    </div>
 
-        <div class="col mb-3">
+    <div class="col mb-3">
 
-        </div>
+    </div>
 
-        <div class="col mb-3">
-            <h5>Section</h5>
-            <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-            </ul>
-        </div>
+    <div class="col mb-3">
+      <h5>Section</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+      </ul>
+    </div>
 
-        <div class="col mb-3">
-            <h5>Section</h5>
-            <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-            </ul>
-        </div>
+    <div class="col mb-3">
+      <h5>Section</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+      </ul>
+    </div>
 
-    </footer>
+    <div class="col mb-3">
+      <h5>Section</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+      </ul>
+    </div>
+  </footer>
+</div>
+    
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
