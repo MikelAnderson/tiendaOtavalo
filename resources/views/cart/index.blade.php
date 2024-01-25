@@ -14,6 +14,7 @@
           <th scope="col">Name</th>
           <th scope="col">Price</th>
           <th scope="col">Quantity</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -23,6 +24,8 @@
           <td>{{ $product->getName() }}</td>
           <td>${{ $product->getPrice() }}</td>
           <td>{{ session('products')[$product->getId()] }}</td>
+        <td><a href="{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">Purchase</a></td>
+      
         </tr>
         @endforeach
       </tbody>
@@ -32,7 +35,6 @@
         <a class="btn btn-outline-secondary mb-2"><b>Total to pay:</b> ${{ $viewData["total"] }}</a>
         @if (count($viewData["products"]) > 0)
         <a href="{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">Purchase</a>
-        <a href="{{ route('cart.delete') }}">
           <button class="btn btn-danger mb-2">
             Remove all products from Cart
           </button>

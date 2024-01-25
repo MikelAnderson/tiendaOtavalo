@@ -2,21 +2,16 @@
 @section('title', $viewData["title"])
 @section('subtitle', $viewData["subtitle"])
 @section('content')
-<div class="container-fluid">
-  <form action="" method="get">
-    <label>Filter by category</label>
+<div class="col-lg-12">
+  <form action="" method="get" class="d-flex gap-2">
+    <label class="col-lg7">Filter by category</label>
     <select name="category_id" class="form-select">
+      <option value="">All categories</option>
       @foreach ($viewData['categories'] as $category)
       <option value="{{ $category->getId()}}">{{ $category->getName()}}</option>
       @endforeach
     </select>
-    <button
-      type="submit"
-      class="btn btn-primary"
-    >
-      Submit
-    </button>
-    
+    <button type="submit" class="btn btn-info">Filter</button>
   </form>
     
 
@@ -34,14 +29,4 @@
   </div>
   @endforeach
 </div>
-@endsection
-
-@section('javascripts')
-    <script>
-      $(document).ready(function () {
-        var products = $('#datatable').Datatable({
-          'ajax'
-        })
-      })
-    </script>
 @endsection

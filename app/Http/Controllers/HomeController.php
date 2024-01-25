@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
+
 class HomeController extends Controller
 {
     public function index()
@@ -25,4 +26,5 @@ class HomeController extends Controller
         $viewData["author"] = "Developed by: Your Name";
         return view('home.about')->with("viewData", $viewData);
     }
+
 }

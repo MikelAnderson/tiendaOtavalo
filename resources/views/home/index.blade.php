@@ -113,92 +113,31 @@
 
     <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="card-wrapper">
-                    <div class="card">
-                        <div class="image-wrapper">
-                            <img src="..." class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="image-wrapper">
-                            <img src="..." class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
+            @foreach ($viewData['featuredProducts']->chunk(3) as $chunk)
+                <div class="carousel-item{{ $loop->first ? ' active' : '' }}" id="featured-item">
+                    <div class="card-wrapper">
+                        @foreach ($chunk as $producto)
+                            <div class="card card-featured">
+                                <img src="{{ $producto->imagen }}" class="card-img-top" alt="{{ $producto->nombre }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $producto->nombre }}</h5>
+                                    <p class="card-text">{{ $producto->descripcion }}</p>
+                                    <p class="card-text">Precio: ${{ $producto->precio }}</p>
+                                    <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card-wrapper">
-                    <div class="card">
-                        <div class="image-wrapper">
-                            <img src="..." class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="image-wrapper">
-                            <img src="..." class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card-wrapper">
-                    <div class="card">
-                        <div class="image-wrapper">
-                            <img src="..." class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="image-wrapper">
-                            <img src="..." class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 @endsection

@@ -106,7 +106,7 @@
           <td>{{ $product->getId() }}</td>
           <td>{{ $product->getName() }}</td>
           <td>{{ $product->getPrice() }}</td>
-          <td>{{ $product->categories->name }}</td>
+          <td>{{ $product->categories ? $product->categories->name :'No category'}}</td>
           <td>{{ $product->getFeatured() }}</td>
           <td>{{ $product->getSale() }}</td>
           <td>
