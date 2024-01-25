@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        $featuredProducts = Product::where('featured', true)->get();
         $viewData = [];
         $viewData["title"] = "Home Page - Tienda Otavalo";
+        $viewData["featuredProducts"] = $featuredProducts;
         return view('home.index')->with("viewData", $viewData);
     }
 
