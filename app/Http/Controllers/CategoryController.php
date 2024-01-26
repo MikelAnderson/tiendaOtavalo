@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,7 +15,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        
+        $viewData = [];
+        $viewData["title"] = "Categories - Online Store";
+        $viewData["subtitle"] =  "All the categories";
+        $viewData["categories"] = Category::all();
+        return view('category.index')->with('viewData', $viewData);   
     }
 
     /**
@@ -44,9 +49,19 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        
+        if(Category::where('id', $id)->exists()){
+            $category = Category::where('id', $id)->first();
+            $products = Product::where('category_id', $category->id)->get();
+            $viewData = [];
+            $viewData["title"] = $category->name." - Online Store";
+            $viewData["subtitle"] =  "All the categories";
+            $viewData["products"] = $products;
+            return view('category.show')->with('viewData', $viewData);
+        }else{
+            return redirect('/')->with("No hay categoria");
+        }     
     }
 
     /**

@@ -29,10 +29,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home.index') }}" tabindex="-1"
+                                aria-disabled="true">Home</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Products
+                                Shop
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{ route('product.index') }}">All the products</a>
@@ -42,7 +46,7 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Categories</a></li>
+                                <li><a class="dropdown-item" href="{{route('category.index')}}">Categories</a></li>
                                 <li><a class="dropdown-item" href="#">Smartphones</a></li>
 
                             </ul>
@@ -55,7 +59,8 @@
                             <a class="nav-link" href="{{ route('home.about') }}" tabindex="-1"
                                 aria-disabled="true">About</a>
                         </li>
-                        <div class="vr mx-2 d-none d-lg-block"></div>
+                    </ul>
+                    <ul class="navbar-nav mb-2 mb-lg-0">
                         @guest
                             <li class="nav-item d-flex">
                                 <a class="nav-link active" href="{{ route('login') }}">Login</a>
@@ -73,10 +78,12 @@
                                 @csrf
                             </form>
                         @endguest
-                        <form class="nav-item d-flex">
+                        <form class="nav-item d-flex col-sm-5">
                           <input class="form-control" type="search" placeholder="Search Product" aria-label="Search">
                           <button class="btn btn-outline-success" type="submit">Search</button>
                       </form>
+                    </ul>
+                        
                 </div>
                 </ul>
                 

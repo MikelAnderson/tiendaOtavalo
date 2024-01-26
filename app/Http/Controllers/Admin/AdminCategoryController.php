@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminCategoryController extends Controller
 {
@@ -23,7 +24,19 @@ class AdminCategoryController extends Controller
 
         $newCategory = new Category();
         $newCategory->setName($request->input('name'));
+        $newCategory->setImage('safe.png');
         $newCategory->save();
+
+        if ($request->hasFile('image')) {
+            $imageName = $newCategory->getId().".".$request->file('image')->extension();
+            Storage::disk('public')->put(
+                $imageName,
+                file_get_contents($request->file('image')->getRealPath())
+            );
+            $newCategory->setImage($imageName);
+            $newCategory->save();
+        }
+
         return back();
     }
 

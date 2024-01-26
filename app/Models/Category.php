@@ -9,6 +9,7 @@ class Category extends Model
 {
     use HasFactory;
 
+
     public function products() {
         return $this->hasMany(Product::class, 'id');
     }
@@ -16,7 +17,8 @@ class Category extends Model
     public static function validate($request)
     {
         $request->validate([
-            "name" => "required|max:255"
+            "name" => "required|max:255",
+            "image" => "image"
         ]);
     }
 
@@ -38,5 +40,14 @@ class Category extends Model
     public function setName($name)
     {
         $this->attributes['name'] = $name;
+    }
+    public function getImage()
+    {
+        return $this->attributes['image'];
+    }
+
+    public function setImage($image)
+    {
+        $this->attributes['image'] = $image;
     }
 }
