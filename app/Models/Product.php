@@ -32,7 +32,8 @@ class Product extends Model
             "description" => "required",
             "price" => "required|numeric|gt:0",
             'image' => 'image',
-            'category' => 'nullable'
+            'category' => 'nullable',
+            'discountedPrice' => 'nullable'
         ]);
     }
 

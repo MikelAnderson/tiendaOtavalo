@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
-    <div id="#carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3500"
+    <div id="#carouselExampleFade" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500"
         data-bs-wrap="true">
         <div class="carousel-inner">
             <div class="carousel-item image-cover active main" 
@@ -41,7 +41,7 @@
     <div class="container col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-10 col-sm-12 col-lg-6 col-xs-12">
-                <img src="{{ asset('/img/game.png') }}" class="d-block mx-lg-auto img-fluid rounded" alt="Bootstrap Themes"
+                <img src="{{ asset('/img/hplaptop.png') }}" class="d-block mx-lg-auto img-fluid rounded" alt="Bootstrap Themes"
                     width="700" height="500" loading="lazy">
             </div>
             <div class="col-lg-6">
@@ -67,7 +67,7 @@
                         @foreach ($chunk as $product)
                         <div class="card card-item">
                             <div class="img-wrapper">
-                                <img src="{{asset('/img/game.png')}}" class="card-img-top">
+                                <img src="{{ asset('/storage/' . $product->getImage()) }}" class="card-img-top">
                             </div>
                             <div class="card-body">
                               <h5 class="card-title">{{ $product->name}}</h5>
