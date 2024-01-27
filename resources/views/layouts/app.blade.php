@@ -17,11 +17,11 @@
 <script src="{{ asset('js/app.js') }}"></script>
 
 <body>
-    <header class="px-5 py-2 bg-light">
+    <header class="px-5 py-3 bg-light sticky-top">
         <!-- place navbar here -->
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid d-flex justify-content-between">
-                <a class="navbar-brand" href="{{ route('home.index') }}">Online Store</a>
+                <a class="navbar-brand" href="{{ route('home.index') }}">OM Store</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -31,18 +31,18 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home.index') }}" tabindex="-1"
-                                aria-disabled="true">Home</a>
+                                aria-disabled="true">HOME</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Shop
+                                SHOP
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{ route('product.index') }}">All the products</a>
                                 </li>
-                                <li><a class="dropdown-item" href="#">Highlighted products</a></li>
-                                <li><a class="dropdown-item" href="#">Products on sale</a></li>
+                                <li><a class="dropdown-item" href="{{ route('product.featured')}}">Featured products</a></li>
+                                <li><a class="dropdown-item" href="{{ route('product.sale')}}">Products on sale</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -53,11 +53,11 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('cart.index') }}" tabindex="-1"
-                                aria-disabled="true">Cart</a>
+                                aria-disabled="true">CART</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home.about') }}" tabindex="-1"
-                                aria-disabled="true">About</a>
+                                aria-disabled="true">ABOUT</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
@@ -97,7 +97,7 @@
     <!-- place footer here -->
     <hr>
     <div class="container">
-  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-4">
+  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-3">
     <div class="col mb-3">
       <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>

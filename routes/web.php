@@ -20,6 +20,8 @@ Route::get('/products', 'App\Http\Controllers\ProductController@index')->name("p
 Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show')->name("product.show");
 Route::get('/categories' , 'App\Http\Controllers\CategoryController@index')->name('category.index');
 Route::get('/categories/{id}' , 'App\Http\Controllers\CategoryController@show')->name('category.show');
+Route::get('/featured-products', '\App\Http\Controllers\ProductController@featured')->name('product.featured');
+Route::get('/on-sale-products', '\App\Http\Controllers\ProductController@onSale')->name('product.sale');
 
 
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");

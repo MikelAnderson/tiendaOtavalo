@@ -27,11 +27,11 @@ class AdminCategoryController extends Controller
         $newCategory->setImage('safe.png');
         $newCategory->save();
 
-        if ($request->hasFile('image')) {
-            $imageName = $newCategory->getId().".".$request->file('image')->extension();
+        if ($request->hasFile('categoryImage')) {
+            $imageName = $newCategory->getId().".".$request->file('categoryImage')->extension();
             Storage::disk('public')->put(
                 $imageName,
-                file_get_contents($request->file('image')->getRealPath())
+                file_get_contents($request->file('categoryImage')->getRealPath())
             );
             $newCategory->setImage($imageName);
             $newCategory->save();
@@ -52,6 +52,8 @@ class AdminCategoryController extends Controller
         $viewData["title"] = "Admin Page - Edit Product - Online Store";
         $viewData["category"] = Category::findOrFail($id);
         return view('admin.categories.edit')->with("viewData", $viewData);
+
+
     }
 
     public function update(Request $request, $id)
@@ -60,6 +62,15 @@ class AdminCategoryController extends Controller
 
         $category = Category::findOrFail($id);
         $category->setName($request->input('name'));
+        if ($request->hasFile('categoryImage')) {
+            $imageName = $category->getId().".".$request->file('categoryImage')->extension();
+            Storage::disk('public')->put(
+                $imageName,
+                file_get_contents($request->file('categoryImage')->getRealPath())
+            );
+            $category->setImage($imageName);
+        }
+
         $category->save();
         return redirect()->route('admin.categories.index');
     }

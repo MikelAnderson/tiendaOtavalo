@@ -46,4 +46,20 @@ class ProductController extends Controller
 
     return $products->get();
     }
+
+    public function featured() {
+        $featuredProducts = Product::where('featured', true)->get();
+        $viewData = [];
+        $viewData["title"] = "Featured Products - Tienda Otavalo";
+        $viewData["featuredProducts"] = $featuredProducts;
+        return view('product.featured')->with("viewData", $viewData);
+    }
+
+    public function onSale() {
+        $onSaleProducts = Product::where('sale', true)->get();
+        $viewData = [];
+        $viewData["title"] = "Featured Products - Tienda Otavalo";
+        $viewData["onSaleProducts"] = $onSaleProducts;
+        return view('product.sale')->with("viewData", $viewData);
+    }
 }

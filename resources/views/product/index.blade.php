@@ -3,8 +3,11 @@
 @section('subtitle', $viewData['subtitle'])
 @section('content')
 
-<div class="container-fluid products-hero image-cover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url({{ asset('img/bannerproductos.jpg') }} )">
-    <h1>sadds</h1>
+<div class="container-fluid products-hero image-cover" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ asset('img/productos.jpg') }} )">
+    <div class="carousel-caption" style="text-align: center; padding-bottom:15em">
+        <h1 style="text-shadow: 0px 3px 3px #4D4B4B">ALL THE PRODUCTS</h1>
+        <p style="text-shadow: 0px 3px 3px #4D4B4B">New, newest, clasics, retro</p>
+    </div>
 </div>
 <div class="container py-5">
     <form action="" method="get">

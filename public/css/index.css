@@ -4,7 +4,6 @@
   height: 600px;
   background-position: center center;
   background-repeat: no-repeat;
-  background-color: #000;
 
 }
 .products-hero{
@@ -32,13 +31,9 @@
 }
 @media (max-width: 600px) {
   .main {
-    height: 200px;
+    height: 400px;
   }
 }
-
-.carousel-caption{
-}
-
 
 
 @media screen and (min-width:576px){

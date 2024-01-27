@@ -1,37 +1,39 @@
 @extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
-    <div id="#carouselExampleFade" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500"
-        data-bs-wrap="true">
+    <div id="carouselExampleFade" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3525" data-bs-wrap="true">
         <div class="carousel-inner">
             <div class="carousel-item image-cover active main" 
-                style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url({{ asset('img/banner.jpg') }})">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+                style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ asset('img/banner1.jpg') }})">
+                <div class="carousel-caption" style="text-align: center; padding-bottom:10em">
+                    <h1 style="text-shadow: 0px 3px 3px #4D4B4B">A WIDE VARIETY OF ELECTRONIC DEVICES</h1>
+                    <p style="text-shadow: 0px 3px 3px #4D4B4B">We have the best price and the best quality</p>
+                    <p><a class="btn btn-lg btn-primary" href="{{ route('category.index')}}" role="button">Go shop now</a></p>
                 </div>
             </div>
             <div class="carousel-item image-cover main"
-                style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url({{ asset('img/banner2.jpg') }} )">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>second slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+                style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url({{ asset('img/banner2.jpg') }} )">
+                <div class="carousel-caption" style="text-align: center; padding-bottom:10em">
+                    <h1 style="text-shadow: 0px 3px 3px #4D4B4B">ON SALE PRODUCTS</h1>
+                    <p style="text-shadow: 0px 3px 3px #4D4B4B">See our products with a great discount</p>
+                    <p><a class="btn btn-lg btn-primary" href="registro.php" role="button">Go shop now</a></p>
                 </div>
             </div>
             <div class="carousel-item image-cover main"
                 style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url({{ asset('img/banner3.jpg') }})">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+                <div class="carousel-caption" style="text-align: center; padding-bottom:10em">
+                    <h1 style="text-shadow: 0px 3px 3px #4D4B4B">JOIN US</h1>
+                    <p style="text-shadow: 0px 3px 3px #4D4B4B">Now you can register for free!</p>
+                    <p><a class="btn btn-lg btn-primary" href="registro.php" role="button">Register for free</a></p>
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev d-none" type="button" data-bs-target="#carouselExampleFade"
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next d-none" type="button" data-bs-target="#carouselExampleFade"
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
             data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
