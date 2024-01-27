@@ -18,6 +18,7 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index")
 Route::get('/about', 'App\Http\Controllers\HomeController@about')->name("home.about");
 Route::get('/products', 'App\Http\Controllers\ProductController@index')->name("product.index");
 Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show')->name("product.show");
+Route::get('/products/search', 'App\Http\Controllers\ProductController@search')->name("product.search");
 Route::get('/categories' , 'App\Http\Controllers\CategoryController@index')->name('category.index');
 Route::get('/categories/{id}' , 'App\Http\Controllers\CategoryController@show')->name('category.show');
 Route::get('/featured-products', '\App\Http\Controllers\ProductController@featured')->name('product.featured');
@@ -26,6 +27,7 @@ Route::get('/on-sale-products', '\App\Http\Controllers\ProductController@onSale'
 
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
 Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name("cart.delete");
+Route::get('/cart/delete/{id}', 'App\Http\Controllers\CartController@deleteItem')->name("cart.delete-item");
 Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
 
 Route::middleware('auth')->group(function () {
@@ -49,5 +51,7 @@ Route::middleware('admin')->group(function () {
 
 
 });
+
+Route::post('/productos/show' , '\App\Http\Controllers\CommentsController@newComment')->name('product.comment');
 
 Auth::routes();

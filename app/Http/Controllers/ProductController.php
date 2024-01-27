@@ -31,9 +31,11 @@ class ProductController extends Controller
     {
         $viewData = [];
         $product = Product::findOrFail($id);
+        $comments = $product->comments()->get();
         $viewData["title"] = $product->getName()." - Online Store";
         $viewData["subtitle"] =  $product->getName()." - Product information";
         $viewData["product"] = $product;
+        $viewData["comments"] = $comments;
         return view('product.show')->with("viewData", $viewData);
     }
 
@@ -61,5 +63,15 @@ class ProductController extends Controller
         $viewData["title"] = "Featured Products - Tienda Otavalo";
         $viewData["onSaleProducts"] = $onSaleProducts;
         return view('product.sale')->with("viewData", $viewData);
+    }
+    
+    public function search(Request $request){
+        $query = $request->input('search');
+
+        $products = Product::where('name', 'like', "%$query%")->get();
+
+        return view('/')->with('products', $products);
+
+
     }
 }

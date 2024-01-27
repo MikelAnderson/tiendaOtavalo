@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Ui\Presets\React;
 
 class CartController extends Controller
 {
@@ -14,11 +15,11 @@ class CartController extends Controller
     {
         $total = 0;
         $productsInCart = [];
-
         $productsInSession = $request->session()->get("products");
         if ($productsInSession) {
             $productsInCart = Product::findMany(array_keys($productsInSession));
             $total = Product::sumPricesByQuantities($productsInCart, $productsInSession);
+            
         }
 
         $viewData = [];
@@ -29,12 +30,24 @@ class CartController extends Controller
         return view('cart.index')->with("viewData", $viewData);
     }
 
+    // public function quantity(Request $request) {
+    //     $productsInSession = $request->session()->get("products");
+    //     if ($productsInSession) {
+    //         $productsInCart = Product::findMany(array_keys($productsInSession));            
+    //     }
+
+    //     foreach ($productsInCart as $product) {
+    //         $quantity = $productsInSession[$product->getId()];
+    //     }
+
+    //     return $quantity;
+    // }
+
     public function add(Request $request, $id)
     {
         $products = $request->session()->get("products");
         $products[$id] = $request->input('quantity');
         $request->session()->put('products', $products);
-
         return redirect()->route('cart.index');
     }
 
@@ -42,6 +55,16 @@ class CartController extends Controller
     {
         $request->session()->forget('products');
         return back();
+    }
+
+    public function deleteItem(Request $request, $id){
+        $productsInSession = $request->session()->get("products");
+        if ($productsInSession && isset($productsInSession[$id])) {
+            unset($productsInSession[$id]);
+            $request->session()->put('products', $productsInSession);
+            return redirect()->route('cart.index')->with('success', 'Ítem eliminado del carrito.');
+        }
+        return redirect()->route('cart.index')->with('error', 'Ítem no encontrado en el carrito.');
     }
 
     public function purchase(Request $request)

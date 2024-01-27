@@ -50,7 +50,7 @@
             <label class="col-lg-3 col-md-6 col-sm-12 col-form-label">Category:</label>
             <div class="col-lg-9 col-md-6 col-sm-12">
               <select name="category" class="form-select">
-                <option value="" selected> {{ $viewData['product']->categories->name}}</option>
+                <option value="{{ $viewData['product']->categories->id ?? "" }}" selected disabled> {{ $viewData['product']->categories->name ?? "Select category"}}</option>
                 @foreach ($viewData["categories"] as $category)
                 <option value="{{ $category->getId() }}" >{{ $category->getName() }}</option>
                 @endforeach
@@ -73,6 +73,14 @@
           <label class="form-check-label" for="flexCheckDefault">
             Product on sale
           </label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3 row">
+          <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Discounted Price:</label>
+          <div class="col-lg-10 col-md-6 col-sm-12">
+            <input name="discountedPrice" value="{{ $viewData['product']->getDiscountedPrice() }}" type="number" class="form-control">
+          </div>
         </div>
       </div>
       <div class="mb-3">

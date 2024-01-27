@@ -7,6 +7,8 @@ use App\Models\Item;
 
 class Product extends Model
 {
+    protected $fillable = ['id'];
+
     /**
      * PRODUCT ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)
@@ -22,6 +24,11 @@ class Product extends Model
     public function categories()
     {
         return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function comments()
+    {
+        return $this->belongsTo(Comment::class);
     }
 
 
@@ -99,7 +106,7 @@ class Product extends Model
 
     public function getDiscountedPrice()
     {
-        return $this->attributes['disounted_price'];
+        return $this->attributes['discounted_price'];
     }
 
     public function setDiscountedPrice($discountedPrice)

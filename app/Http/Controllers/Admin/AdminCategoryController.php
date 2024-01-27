@@ -63,7 +63,7 @@ class AdminCategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->setName($request->input('name'));
         if ($request->hasFile('categoryImage')) {
-            $imageName = $category->getId().".".$request->file('categoryImage')->extension();
+            $imageName = "categoryID_".$category->getId().".".$request->file('categoryImage')->extension();
             Storage::disk('public')->put(
                 $imageName,
                 file_get_contents($request->file('categoryImage')->getRealPath())

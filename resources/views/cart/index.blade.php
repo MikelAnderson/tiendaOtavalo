@@ -23,9 +23,12 @@
           <td>{{ $product->getId() }}</td>
           <td>{{ $product->getName() }}</td>
           <td>${{ $product->getPrice() }}</td>
-          <td>{{ session('products')[$product->getId()] }}</td>
-        <td><a href="{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">Purchase</a></td>
-      
+          <td></td>
+          <td>
+            <button class="btn bg-danger text-white mb-2">
+              <a href="{{ route('cart.delete-item', array_keys(session('products')) ) }}" class="text-decoration-none text-white"  >Remove</a>
+              </button>
+          </td>
         </tr>
         @endforeach
       </tbody>
@@ -34,9 +37,12 @@
       <div class="text-end">
         <a class="btn btn-outline-secondary mb-2"><b>Total to pay:</b> ${{ $viewData["total"] }}</a>
         @if (count($viewData["products"]) > 0)
-        <a href="{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">Purchase</a>
+        <button class="btn btn-primary mb-2" >
+          <a href="{{ route('cart.purchase') }}"  class="text-decoration-none text-white" >Purchase</a>
+
+        </button>
           <button class="btn btn-danger mb-2" >
-            <a href="{{ route('cart.delete')}}">Remove all products from Cart</a>
+            <a href="{{ route('cart.delete')}}" class="text-decoration-none text-white">Remove all products from Cart</a>
           </button>
         </a>
         @endif

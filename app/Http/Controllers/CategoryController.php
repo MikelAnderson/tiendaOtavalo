@@ -58,6 +58,7 @@ class CategoryController extends Controller
             $viewData["title"] = $category->name." - Online Store";
             $viewData["subtitle"] =  "All the categories";
             $viewData["products"] = $products;
+            $viewData['category'] = $category;
             return view('category.show')->with('viewData', $viewData);
         }else{
             return redirect('/')->with("No hay categoria");

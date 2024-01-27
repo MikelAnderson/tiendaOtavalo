@@ -17,6 +17,9 @@
 <script src="{{ asset('js/app.js') }}"></script>
 
 <body>
+    <div class="position-fixed bottom-0 end-0 mb-5 me-5 " style="z-index:100">
+        <a href="{{route('customer-service-chat')}}"><img src="{{ asset('/img/support.png')}}" style="filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.5));" width="60px"></a>
+    </div>
     <header class="px-5 py-3 bg-light sticky-top">
         <!-- place navbar here -->
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -78,15 +81,13 @@
                                 @csrf
                             </form>
                         @endguest
-                        <form class="nav-item d-flex col-sm-7 gap-2">
-                          <input class="form-control" type="search" placeholder="Search Product" aria-label="Search">
+                        <form action="{{route('product.search')}}" method="GET" id="name" class="nav-item d-flex col-sm-7 gap-2">
+                          <input class="form-control" type="search" name="search" placeholder="Search Product" aria-label="Search">
                           <button class="btn btn-outline-success" type="submit">Search</button>
                       </form>
-                    </ul>
-                        
+                    </ul>   
                 </div>
                 </ul>
-                
             </div>
             </div>
         </nav>
