@@ -60,9 +60,9 @@
                                 aria-disabled="true">About</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav mb-2 mb-lg-0">
+                    <ul class="navbar-nav">
                         @guest
-                            <li class="nav-item d-flex">
+                            <li class="nav-item">
                                 <a class="nav-link active" href="{{ route('login') }}">Login</a>
                             </li>
                             <li class="nav-item">
@@ -78,7 +78,7 @@
                                 @csrf
                             </form>
                         @endguest
-                        <form class="nav-item d-flex col-sm-5">
+                        <form class="nav-item d-flex col-sm-7 gap-2">
                           <input class="form-control" type="search" placeholder="Search Product" aria-label="Search">
                           <button class="btn btn-outline-success" type="submit">Search</button>
                       </form>
