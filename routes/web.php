@@ -16,11 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
 Route::get('/about', 'App\Http\Controllers\HomeController@about')->name("home.about");
-Route::get('/products', 'App\Http\Controllers\ProductController@index')->name("product.index");
-Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show')->name("product.show");
-Route::get('/products/search', 'App\Http\Controllers\ProductController@search')->name("product.search");
 Route::get('/categories' , 'App\Http\Controllers\CategoryController@index')->name('category.index');
 Route::get('/categories/{id}' , 'App\Http\Controllers\CategoryController@show')->name('category.show');
+Route::get('/products', 'App\Http\Controllers\ProductController@index')->name("product.index");
+Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show')->name("product.show");
+Route::get('/products/{comments}' , '\App\Http\Controllers\CommentsController@comments')->name('product.comment');
+
+Route::get('/products/search', 'App\Http\Controllers\ProductController@search')->name("product.search");
+
 Route::get('/featured-products', '\App\Http\Controllers\ProductController@featured')->name('product.featured');
 Route::get('/on-sale-products', '\App\Http\Controllers\ProductController@onSale')->name('product.sale');
 
@@ -33,6 +36,8 @@ Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("
 Route::middleware('auth')->group(function () {
     Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
     Route::get('/my-account/orders', 'App\Http\Controllers\MyAccountController@orders')->name("myaccount.orders");
+    Route::post('products/{id}/', 'App\Http\Controllers\CommentsController@store')->name("store.comment");
+
 });
 
 Route::middleware('admin')->group(function () {
@@ -49,9 +54,14 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/categories/{id}/edit', 'App\Http\Controllers\Admin\AdminCategoryController@edit')->name("admin.categories.edit");
     Route::put('/admin/categories/{id}/update', 'App\Http\Controllers\Admin\AdminCategoryController@update')->name("admin.categories.update");
 
+    Route::get('/admin/comments', '\App\Http\Controllers\Admin\AdminCommentsController@index')->name("admin.comments.index");
+    Route::delete('/admin/comments/{id}/delete', '\App\Http\Controllers\Admin\AdminCommentsController@delete')->name("admin.comments.delete");
+    Route::get('/admin/comments/{id}/edit', '\App\Http\Controllers\Admin\AdminCommentsController@edit')->name("admin.comments.edit");
+    Route::put('/admin/comments/{id}/update', '\App\Http\Controllers\Admin\AdminCommentsController@update')->name("admin.comments.update");
+
+
 
 });
 
-Route::post('/productos/show' , '\App\Http\Controllers\CommentsController@newComment')->name('product.comment');
 
 Auth::routes();

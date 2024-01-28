@@ -38,43 +38,8 @@
 </div>
 
 <div>
-  @foreach ($viewData['comments'] as $comment)
-    <div>
-      {{ $comment->content() }}
-    </div>
-  @endforeach
+{{$viewData['product']->comments}}
 </div>
+@include('comments.list' , ['list'=>$viewData['product']->comments])
 
-
-<div class="container">
-  <form action="{{route('product.comment')}}" method="post">
-    @csrf
-
-    @foreach ($errors->all() as $error)
-        <p class="alert alert-danger">{{$error}}</p>
-    @endforeach
-
-    @if (session('status'))
-        <div class="alert alert-success"> {{ session('status') }} </div>
-    @endif
-
-    <input type="hidden" name="product_id" value="{{ $viewData['product']->getId() }}">
-
-    <fieldset>
-      <legend>Comment</legend>
-      <div class="form-group">
-        <label for="">Your comment</label>
-        <textarea name="content" id="content" class="form-control" placeholder="" aria-describedby="helpId"></textarea>
-        <small id="helpId" class="text-muted">Help text</small>
-      </div>
-      <div class="form-group">
-        <div class="col-lg-10 col-lg-offset-2">
-          <button type="reset" class="btn bnt-default">Cancel</button>
-          <button type="submit" class="btn btn-primary">Comment Product</button>
-        </div>
-      </div>
-    </fieldset>
-
-  </form>
-</div>
 @endsection

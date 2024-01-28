@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -31,7 +32,7 @@ class ProductController extends Controller
     {
         $viewData = [];
         $product = Product::findOrFail($id);
-        $comments = $product->comments()->get();
+        $comments = Comment::where('id_product' , $id);
         $viewData["title"] = $product->getName()." - Online Store";
         $viewData["subtitle"] =  $product->getName()." - Product information";
         $viewData["product"] = $product;

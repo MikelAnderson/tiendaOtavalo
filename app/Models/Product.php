@@ -7,7 +7,6 @@ use App\Models\Item;
 
 class Product extends Model
 {
-    protected $fillable = ['id'];
 
     /**
      * PRODUCT ATTRIBUTES
@@ -28,7 +27,7 @@ class Product extends Model
 
     public function comments()
     {
-        return $this->belongsTo(Comment::class);
+        return $this->hasMany(Comment::class);
     }
 
 

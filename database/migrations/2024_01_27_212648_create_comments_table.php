@@ -16,13 +16,25 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->text('content');
-            $table->integer('product_id');
-            $table->integer('user_id')->nullable();
+            $table->boolean('posted');
+            $table->foreignId('product_id')
+                ->constrained('products')
+                ->cascadeOnUpdate()
+                ->onDelete('cascade');
+            $table->foreignId('user_id')
+                ->constrained('users')
+                ->cascadeOnUpdate()
+                ->onDelete('cascade');
+            $table->foreignId('parent_id')
+                ->nullable()
+                ->references('id')
+                ->on('comments')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
