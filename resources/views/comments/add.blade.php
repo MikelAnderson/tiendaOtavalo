@@ -1,8 +1,13 @@
 
     <form action="{{route('store.comment', $comment)}}" method="post">
         @csrf
+        {{-- @if (isset($comment->id))
+        <input type="hidden" name="parent_id" value="{{ $comment->id }}">
+        @endif --}}
     <fieldset>
         <input type="hidden" name="user_id" value="{{ \auth()->id()}}">
+        <input type="hidden" name="product_id" value="{{ $comment->id_product}}">
+
       <div class="form-group">
         <textarea name="content" class="form-control" placeholder="Write a reply" aria-describedby="helpId"></textarea>
       </div>

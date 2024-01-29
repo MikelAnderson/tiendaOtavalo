@@ -20,7 +20,7 @@ Route::get('/categories' , 'App\Http\Controllers\CategoryController@index')->nam
 Route::get('/categories/{id}' , 'App\Http\Controllers\CategoryController@show')->name('category.show');
 Route::get('/products', 'App\Http\Controllers\ProductController@index')->name("product.index");
 Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show')->name("product.show");
-Route::get('/products/{comments}' , '\App\Http\Controllers\CommentsController@comments')->name('product.comment');
+// Route::get('/products/{comments}' , '\App\Http\Controllers\CommentsController@comments')->name('product.comment');
 
 Route::get('/products/search', 'App\Http\Controllers\ProductController@search')->name("product.search");
 
@@ -36,7 +36,7 @@ Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("
 Route::middleware('auth')->group(function () {
     Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
     Route::get('/my-account/orders', 'App\Http\Controllers\MyAccountController@orders')->name("myaccount.orders");
-    Route::post('products/{id}/', 'App\Http\Controllers\CommentsController@store')->name("store.comment");
+    Route::post('products/{comment}/', 'App\Http\Controllers\CommentsController@store')->name("store.comment");
 
 });
 

@@ -41,5 +41,6 @@
       </div>
     </div>
   </div>
-
-  
+@if ($comment->reply)
+    @include('comments.list', ['list'=>$comment->reply])
+@endif

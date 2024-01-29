@@ -25,6 +25,7 @@ class ProductController extends Controller
         $viewData["subtitle"] =  "List of products";
         $viewData["products"] = $products;
         $viewData["categories"] = Category::all();
+        $viewData['comments'] = Comment::all();
         return view('product.index')->with("viewData", $viewData);
     }
 
