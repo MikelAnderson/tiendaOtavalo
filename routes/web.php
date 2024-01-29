@@ -2,7 +2,7 @@
 
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\RichTextContentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('rich-text-content/create', [RichTextContentController::class, 'create'])->name('rich_text_content.create');
+Route::post('rich-text-content', [RichTextContentController::class, 'store'])->name('rich_text_content.store');
+Route::get('rich-text-content/{richTextContent}', [RichTextContentController::class, 'show'])->name('rich_text_content.show');
+
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
 Route::get('/about', 'App\Http\Controllers\HomeController@about')->name("home.about");

@@ -81,7 +81,7 @@
                                 @csrf
                             </form>
                         @endguest
-                        <form action="{{ route('searchproduct') }}" method="GET" class="nav-item d-flex col-sm-7 gap-2">
+                        <form action="" method="GET" class="nav-item d-flex col-sm-7 gap-2">
                           <input class="form-control" type="search" name="search" placeholder="Search Product" aria-label="Search">
                           <button class="btn btn-outline-success" type="submit">Search</button>
                       </form>
