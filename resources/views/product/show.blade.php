@@ -45,9 +45,6 @@
 
 <form action="{{route('store.comment', $viewData['product']->id)}}" method="post">
   @csrf
-  {{-- @if (isset($comment->id))
-  <input type="hidden" name="parent_id" value="{{ $comment->id }}">
-  @endif --}}
 <fieldset>
   <input type="hidden" name="user_id" value="{{ \auth()->id()}}">
 
@@ -62,3 +59,5 @@
 </div>
 </fieldset>
 </form>
+
+@endsection

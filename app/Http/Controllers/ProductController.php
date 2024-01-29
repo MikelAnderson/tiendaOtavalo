@@ -68,12 +68,9 @@ class ProductController extends Controller
     }
     
     public function search(Request $request){
-        $query = $request->input('search');
+        $find = $request->input('search');
 
-        $products = Product::where('name', 'like', "%$query%")->get();
-
-        return view('/')->with('products', $products);
-
-
+        $products = DB::table('products')->where('name', 'like', '%' . $find . '%')->get();
+        return view('/product', compact('products'));
     }
 }

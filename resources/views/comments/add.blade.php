@@ -1,9 +1,9 @@
 
     <form action="{{route('store.comment', $comment)}}" method="post">
         @csrf
-        {{-- @if (isset($comment->id))
+        @if (isset($comment->id))
         <input type="hidden" name="parent_id" value="{{ $comment->id }}">
-        @endif --}}
+        @endif
     <fieldset>
         <input type="hidden" name="user_id" value="{{ \auth()->id()}}">
         <input type="hidden" name="product_id" value="{{ $comment->id_product}}">

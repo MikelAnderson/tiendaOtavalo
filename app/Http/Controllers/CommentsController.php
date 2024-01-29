@@ -22,4 +22,6 @@ class CommentsController extends Controller
         $product->comments()->save($comment);
         return redirect()->back();
     }
+
+    
 }
