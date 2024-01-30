@@ -41,7 +41,7 @@
         </button>
     </div>
 
-    <div class="container col-xxl-8 px-4 py-5">
+    <div class="container col-xxl-8 px-4 py-5" id="imghero">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-10 col-sm-12 col-lg-6 col-xs-12">
                 <img src="{{ asset('/img/hplaptop.png') }}" class="d-block mx-lg-auto img-fluid rounded"
@@ -61,7 +61,7 @@
     </div>
 
     <div class="container px-4 mt-5">
-        <div id="featured" class="carousel slide carousel-dark">
+        <div id="featured" class="carousel slide carousel-dark" data-bs-ride="carousel" data-bs-interval="3525" data-bs-wrap="true" >
             <h2 class="py-2 border-bottom">Featured Products</h2>
             <div class="carousel-inner featured-inner">
                 @foreach ($viewData['featuredProducts']->chunk(3) as $chunk)

@@ -85,8 +85,7 @@
       </div>
       <div class="mb-3">
         <label class="form-label">Description</label>
-        <textarea class="form-control" name="description"
-          rows="3">{{ $viewData['product']->getDescription() }}</textarea>
+        <textarea id="mytextarea" class="form-control" name="description" rows="3">{{ $viewData['product']->getDescription() }}</textarea>
       </div>
       <button type="submit" class="btn btn-primary">Edit</button>
     </form>

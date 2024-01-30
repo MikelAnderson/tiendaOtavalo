@@ -14,7 +14,9 @@
           <h5 class="card-title">
             {{ $viewData["product"]->getName() }} (${{ $viewData["product"]->getPrice() }})
           </h5>
-          <p class="card-text">{{ $viewData["product"]->getDescription() }}</p>
+          <div id="description" > {{{ $viewData["product"]->getDescription() }}} </div>
+          <textarea name="" id="mytextarea" cols="30" rows="10">{{{ $viewData["product"]->getDescription() }}}</textarea>
+          <p class="card-text">{{{ $viewData["product"]->getDescription() }}}</p>
           <p class="card-text">
           <form method="POST" action="{{ route('cart.add', ['id'=> $viewData['product']->getId()]) }}">
             <div class="row">
@@ -37,27 +39,35 @@
   </div>
 </div>
 
-<div>
-{{$viewData['product']->comments}}
-</div>
-@include('comments.list' , ['list'=>$viewData['product']->comments])
 
-
-<form action="{{route('store.comment', $viewData['product']->id)}}" method="post">
-  @csrf
-<fieldset>
-  <input type="hidden" name="user_id" value="{{ \auth()->id()}}">
-
-<div class="form-group">
-  <textarea name="content" class="form-control" placeholder="Write a reply" aria-describedby="helpId"></textarea>
-</div>
-<div class="form-group">
-  <div class="col-lg-10 col-lg-offset-2 gap-2">
-    <button type="reset" class="btn btn-light btn-sm">Cancel</button>
-    <button type="submit" class="btn btn-primary btn-sm">Send Reply</button>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 border rounded p-5">
+      <h2>Comment the product</h2>
+      <form action="{{route('store.comment', $viewData['product']->id)}}" method="post">
+        @csrf
+        <div class="mb-3">
+          <fieldset>
+            <input type="hidden" name="user_id" value="{{ \auth()->id()}}">
+          <div class="form-group">
+            <textarea name="content" class="form-control" placeholder="Write a comment about this product" aria-describedby="helpId"></textarea>
+          </div>
+          </fieldset>
+        </div>
+        <div class="d-flex justify-content-end gap-2">
+          <button type="reset" class="btn btn-danger">Cancel</button>
+          <button type="submit" class="btn btn-success">Comment</button>
+        </div>
+             
+      </form>
+    </div>
   </div>
 </div>
-</fieldset>
-</form>
+
+
+<div class=" pt-5">
+  <h3 class="text-center">Comments about this product:</h3>
+  @include('comments.list' , ['list'=>$viewData['product']->comments])
+</div>
 
 @endsection

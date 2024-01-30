@@ -15,9 +15,21 @@
 </head>
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="https://cdn.tiny.cloud/1/tkdsja9oy9ieq7b42jbny4mzfm3lj80n730ajzw3utg6m0bf/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+
+      function mostrarContenido() {
+      var contenido = tinymce.get('mytextarea').getContent();
+      document.getElementById('description').innerHTML = contenido;
+    }
+    mostrarContenido();
+    </script>
 
 <body>
-    <div class="position-fixed bottom-0 end-0 mb-5 me-5 " style="z-index:100">
+    <div class="position-fixed bottom-0 end-0 mb-5 me-5 customer" style="z-index:100">
         <a href="{{route('customer-service-chat')}}"><img src="{{ asset('/img/support.png')}}" style="filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.5));" width="60px"></a>
     </div>
     <header class="px-5 py-3 bg-light sticky-top">
@@ -42,15 +54,14 @@
                                 SHOP
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{{ route('product.index') }}">All the products</a>
-                                </li>
-                                <li><a class="dropdown-item" href="{{ route('product.featured')}}">Featured products</a></li>
-                                <li><a class="dropdown-item" href="{{ route('product.sale')}}">Products on sale</a></li>
+                                <li><a class="dropdown-item" href="{{route('category.index')}}">Categories</a></li>
+                                <li><a class="dropdown-item" href="{{ route('product.index') }}">All the products</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="{{route('category.index')}}">Categories</a></li>
-                                <li><a class="dropdown-item" href="#">Smartphones</a></li>
+                                <li><a class="dropdown-item" href="{{ route('product.featured')}}">Featured products</a></li>
+                                <li><a class="dropdown-item" href="{{ route('product.sale')}}">Products on sale</a></li>
+                                
 
                             </ul>
                         </li>

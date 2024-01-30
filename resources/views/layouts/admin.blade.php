@@ -9,6 +9,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link href="{{ asset('/css/admin.css') }}" rel="stylesheet" />
   <title>@yield('title', 'Admin - Online Store')</title>
+
+    <script src="https://cdn.tiny.cloud/1/tkdsja9oy9ieq7b42jbny4mzfm3lj80n730ajzw3utg6m0bf/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
+
 </head>
 
 <body>
