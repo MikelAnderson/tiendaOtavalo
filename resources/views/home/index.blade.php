@@ -52,7 +52,7 @@
                 <p class="lead">We have a wide range of electronic products, such as computers, laptops, mobiles,... You can also comment on the product so that users can rate the product.</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                     <a href="{{route('product.featured')}}"><button type="button" class="btn btn-primary btn-lg px-4 me-md-2" >Featured Product</button></a>
-                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">All the products</button>
+                    <a href="{{route('product.index')}}"><button type="button" class="btn btn-outline-secondary btn-lg px-4">All the products</button></a>
                 </div>
             </div>
         </div>
@@ -92,8 +92,8 @@
             </div>
         </div>
 
-        <div class="container px-4 py-5 mt-5" id="hanging-icons">
-            <h2 class="pb-2 border-bottom">Services</h2>
+        <div class="container px-4 mt-5" id="hanging-icons">
+            <h2 class=" border-bottom">Services</h2>
             <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
                 <div class="col d-flex align-items-start">
                     <div

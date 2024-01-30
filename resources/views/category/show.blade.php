@@ -12,22 +12,28 @@
     </div>
 </div>
 
+<h1 class="text-center my-5 pb-3 border-bottom">{{ $viewData['title']}}</h1>
 
-<h1 style="text-shadow: 0px 3px 3px #4D4B4B"></h1>
-
-<div class="container">
-    <div class="row">
+<div class="container gap-2 d-flex">
+    <div class="row d-flex">
         @foreach ($viewData['products'] as $product)
-            <div class="col-md-4 col-lg-3 mb-2">
-                <div class="card">
-                    <img src="{{ asset('/storage/' . $product->getImage()) }}" class="card-img-top img-card">
-                    <div class="card-body text-center">
-                        <a href="{{ route('product.show', ['id' => $product->getId()]) }}"
-                            class="btn bg-primary text-white">{{ $product->getName() }}</a>
+        <div class="col-md-3">
+            <div class="product-wrapper mb-45 text-center">
+                <div class="product-img"> 
+                    <a href="{{ route('product.show', ['id' => $product->getId()]) }}" data-abc="true"> 
+                    <img src="{{ asset('/storage/' . $product->getImage()) }}"  class="img-fluid"> 
+                    </a> 
+                    <span class="text-center">{{ $product->getPrice()}} €</span>
+                    <div class="product-action">
+                        <div class="product-action-style"> 
+                             <a href="{{ route('product.show', ['id' => $product->getId()]) }}" class="text-decoration-none text-color-white">
+                                <p class="pt-2 px-3" >{{  $product->getName() }}</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        @endforeach
-    </div>
-</div>
+     </div>
+     @endforeach
+
 @endsection

@@ -12,7 +12,12 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">
+            @if ($viewData['product']->getSale())
+            {{ $viewData["product"]->getName() }} (${{ $viewData["product"]->getDiscountedPrice() }})
+            @else
             {{ $viewData["product"]->getName() }} (${{ $viewData["product"]->getPrice() }})
+
+            @endif
           </h5>
           <p class="card-text">{{{ $viewData["product"]->getDescription() }}}</p>
           <form method="POST" action="{{ route('cart.add', ['id'=> $viewData['product']->getId()]) }}">

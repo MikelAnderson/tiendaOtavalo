@@ -54,7 +54,7 @@ class ProductController extends Controller
     public function featured() {
         $featuredProducts = Product::where('featured', true)->get();
         $viewData = [];
-        $viewData["title"] = "Featured Products - Tienda Otavalo";
+        $viewData["title"] = "Featured Products";
         $viewData["featuredProducts"] = $featuredProducts;
         return view('product.featured')->with("viewData", $viewData);
     }
@@ -62,15 +62,10 @@ class ProductController extends Controller
     public function onSale() {
         $onSaleProducts = Product::where('sale', true)->get();
         $viewData = [];
-        $viewData["title"] = "Featured Products - Tienda Otavalo";
+        $viewData["title"] = "On sale Products";
         $viewData["onSaleProducts"] = $onSaleProducts;
         return view('product.sale')->with("viewData", $viewData);
     }
     
-    public function search(Request $request){
-        $find = $request->input('search');
-
-        $products = DB::table('products')->where('name', 'like', '%' . $find . '%')->get();
-        return view('/product', compact('products'));
-    }
+    
 }

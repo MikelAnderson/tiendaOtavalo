@@ -16,17 +16,7 @@
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="https://cdn.tiny.cloud/1/tkdsja9oy9ieq7b42jbny4mzfm3lj80n730ajzw3utg6m0bf/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-      tinymce.init({
-        selector: '#mytextarea'
-      });
-
-      function mostrarContenido() {
-      var contenido = tinymce.get('mytextarea').getContent();
-      document.getElementById('description').innerHTML = contenido;
-    }
-    mostrarContenido();
-    </script>
+ 
 
 <body>
     <div class="position-fixed bottom-0 end-0 mb-5 me-5 customer" style="z-index:100">
@@ -92,7 +82,8 @@
                                 @csrf
                             </form>
                         @endguest
-                        <form action="" method="GET" class="nav-item d-flex col-sm-7 gap-2">
+                        <form action="" method="get" class="nav-item d-flex col-sm-7 gap-2">
+                            @csrf
                           <input class="form-control" type="search" name="search" placeholder="Search Product" aria-label="Search">
                           <button class="btn btn-outline-success" type="submit">Search</button>
                       </form>
@@ -109,50 +100,39 @@
     <!-- place footer here -->
     <hr>
     <div class="container">
-  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-3">
+  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-3 justify-content-between">
     <div class="col mb-3">
       <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
       </a>
-      <p class="text-muted">&copy; 2022</p>
+      <p class="text-muted">by Mikel Otavalo &copy; 2023</p>
     </div>
 
-    <div class="col mb-3">
 
-    </div>
 
-    <div class="col mb-3">
-      <h5>Section</h5>
+    <div class="col mb-3 col-sm-12">
+      <h5>Services</h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+        <li class="nav-item mb-2"><a href="{{route('category.index')}}" class="nav-link p-0 text-muted">Categoires</a></li>
+        <li class="nav-item mb-2"><a href="{{ route('product.index') }}" class="nav-link p-0 text-muted">Products</a></li>
+        <li class="nav-item mb-2"><a href="{{ route('product.featured')}}" class="nav-link p-0 text-muted">Featured Product</a></li>
+        <li class="nav-item mb-2"><a href="{{ route('product.sale')}}" class="nav-link p-0 text-muted">On sale products</a></li>
       </ul>
     </div>
 
-    <div class="col mb-3">
-      <h5>Section</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-      </ul>
-    </div>
+    <div class="col mb-3 ">
+        <h5>About</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="{{ route('home.index') }}" class="nav-link p-0 text-muted">Home</a></li>
+          <li class="nav-item mb-2"><a  href="{{ route('login') }}" class="nav-link p-0 text-muted">Login</a></li>
+          <li class="nav-item mb-2"><a href="{{ route('register') }}" class="nav-link p-0 text-muted">Register</a></li>
+          <li class="nav-item mb-2"><a href="{{route('customer-service-chat')}}" class="nav-link p-0 text-muted">Customer Service</a></li>
+          <li class="nav-item mb-2"><a href="{{ route('home.about') }}" class="nav-link p-0 text-muted">About</a></li>
+        </ul>
+      </div>
 
-    <div class="col mb-3">
-      <h5>Section</h5>
-      <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-      </ul>
-    </div>
+
+    
   </footer>
 </div>
     

@@ -22,7 +22,7 @@ return [
     |
     */
     'web_interface_enabled' => true,
-    'route' => 'servermonitor',
+    'route' => 'admin/monitor',
     'username' => 'servermonitor',
     'password' => 'servermonitor',
     

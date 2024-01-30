@@ -12,9 +12,8 @@
       <thead>
         <tr>
           <th scope="col">ID</th>
-          {{-- <th scope="col">ID_User</th>
-          <th scope="col">User name</th> --}}
-          <th scope="col">Content</th>
+          <th scope="col">User name</th> 
+          <th scope="col">ID_product</th>
           <th scope="col">Edit</th>
           <th scope="col">Delete</th>
         </tr>
@@ -24,8 +23,8 @@
         <tr>
           <td>{{ $comment->id }}</td>
           <td>{{ $comment->content }}</td>
-          {{-- <td>{{ $comment->user()->getId() }}</td> --}}
-          {{-- <td>{{ $comment->user()->name }}</td> --}}
+          <td>{{ $comment->product_id }}</td>
+
           <td>
             <a class="btn btn-primary" href="{{route('admin.comments.edit', ['id'=> $comment->id])}}">
               <i class="bi-pencil"></i>

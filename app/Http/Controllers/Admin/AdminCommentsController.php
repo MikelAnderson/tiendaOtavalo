@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use App\Models\Product;
 use PHP_CodeSniffer\Util\Common;
 
 class AdminCommentsController extends Controller
@@ -14,6 +15,7 @@ class AdminCommentsController extends Controller
         $viewData = [];
         $viewData["title"] = "Admin Page - Comments - Online Store";
         $viewData["comments"] = Comment::all();
+        $viewData["products"] = Product::all();
         return view('admin.comments.index')->with("viewData", $viewData);
     }
 

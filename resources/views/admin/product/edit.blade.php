@@ -50,7 +50,7 @@
             <label class="col-lg-3 col-md-6 col-sm-12 col-form-label">Category:</label>
             <div class="col-lg-9 col-md-6 col-sm-12">
               <select name="category" class="form-select">
-                <option value="{{ $viewData['product']->categories->id ?? "" }}" selected disabled> {{ $viewData['product']->categories->name ?? "Select category"}}</option>
+                <option value="{{ $viewData['product']->category_id}}" selected> {{ $viewData['product']->categories->name ?? "Select category"}}</option>
                 @foreach ($viewData["categories"] as $category)
                 <option value="{{ $category->getId() }}" >{{ $category->getName() }}</option>
                 @endforeach
