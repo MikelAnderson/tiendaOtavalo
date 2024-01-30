@@ -55,7 +55,7 @@ class CategoryController extends Controller
             $category = Category::where('id', $id)->first();
             $products = Product::where('category_id', $category->id)->get();
             $viewData = [];
-            $viewData["title"] = $category->name." - Online Store";
+            $viewData["title"] = $category->name;
             $viewData["subtitle"] =  "All the categories";
             $viewData["products"] = $products;
             $viewData['category'] = $category;

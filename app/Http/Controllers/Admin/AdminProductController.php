@@ -25,7 +25,7 @@ class AdminProductController extends Controller
 
         $newProduct = new Product();
         $newProduct->setName($request->input('name'));
-        $newProduct->setDescription($request->input('description'));
+        $newProduct->setDescription(strip_tags($request->input('description')));
         $newProduct->setPrice($request->input('price'));
         $newProduct->setDiscountedPrice($request->input('discountedPrice'));
         $newProduct->setImage('/img/game.png');
@@ -68,7 +68,7 @@ class AdminProductController extends Controller
 
         $product = Product::findOrFail($id);
         $product->setName($request->input('name'));
-        $product->setDescription($request->input('description'));
+        $product->setDescription(strip_tags($request->input('description')));
         $product->setPrice($request->input('price'));
         $product->setCategory($request->input('category'));
         $product->setFeatured($request->input('featured'));

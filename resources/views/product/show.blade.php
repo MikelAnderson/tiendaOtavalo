@@ -14,10 +14,7 @@
           <h5 class="card-title">
             {{ $viewData["product"]->getName() }} (${{ $viewData["product"]->getPrice() }})
           </h5>
-          <div id="description" > {{{ $viewData["product"]->getDescription() }}} </div>
-          <textarea name="" id="mytextarea" cols="30" rows="10">{{{ $viewData["product"]->getDescription() }}}</textarea>
           <p class="card-text">{{{ $viewData["product"]->getDescription() }}}</p>
-          <p class="card-text">
           <form method="POST" action="{{ route('cart.add', ['id'=> $viewData['product']->getId()]) }}">
             <div class="row">
               @csrf
