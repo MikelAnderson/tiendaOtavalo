@@ -1,4 +1,6 @@
-<div class="row d-flex justify-content-center py-2">
+<div class="container">
+  @if ($comment->posted)
+  <div class="row d-flex justify-content-center py-2">
     <div class="col-md-8 col-lg-6">
       <div class="card shadow-0 border" style="background-color: #f0f2f5;">
         <div class="card-body p-4">
@@ -33,6 +35,10 @@
       </div>
     </div>
   </div>
+</div>
+  @endif
+  
+
 @if ($comment->reply)
     @include('comments.list', ['list'=>$comment->reply])
 @endif

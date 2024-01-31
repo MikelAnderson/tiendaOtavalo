@@ -67,9 +67,9 @@
 </div>
 
 
-<div class=" pt-5">
-  <h3 class="text-center">Comments about this product:</h3>
+<div class=" pt-5 pb-2">
   @include('comments.list' , ['list'=>$viewData['product']->comments])
 </div>
+
 
 @endsection
